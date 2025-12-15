@@ -1,34 +1,49 @@
-name: Deploy to GitHub Pages
+name: Deploy React to GitHub Pages
 
 on:
   push:
     branches:
-      - main # ou 'master', verifique o nome da sua branch principal
-
-permissions:
-  contents: write
+      - main # Triggers the workflow on pushes to the main branch
 
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Use a stable Node.js version
 
-      - name: Build website
-        run: npm run build
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+    - name: Build React application
+      run: npm run build # Builds your app into the 'build' or 'dist' folder
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './build' # Path to your built application's static files (e.g., 'dist' for Vite, 'build' for CRA)
+
+  deploy:
+    needs: build # Ensures the build job completes first
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # Grants the GITHUB_TOKEN write permission for Pages
+      id-token: write # Required by the deploy-pages action
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Sets the deployment environment and URL
+
+    steps:
+    - name: Setup Pages
+      uses: actions/configure-pages@v5 # This action configures the GitHub Pages environment
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4 # This action deploys the uploaded artifact
