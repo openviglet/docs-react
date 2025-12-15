@@ -1,13 +1,13 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Viglet Documentation',
-  tagline: 'Documentation about Viglet Products.',
-  favicon: 'img/favicon.ico',
+  title: "Viglet Documentation",
+  tagline: "Documentation about Viglet Products.",
+  favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,52 +15,64 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://docs-react.viglet.com',
+  url: "https://docs-react.viglet.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-  
+  baseUrl: "/",
+
   trailingSlash: false,
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'openviglet', // Usually your GitHub org/user name.
-  projectName: 'docs-react', // Usually your repo name.
+  organizationName: "openviglet", // Usually your GitHub org/user name.
+  projectName: "docs-react", // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "warn",
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/openviglet/docs-react/tree/main/',
+          sidebarPath: "./sidebars.ts",
+          editUrl: "https://github.com/openviglet/docs-react/tree/main/",
+          versions: {
+            current: {
+              label: "Stable (v2025.3)",
+            },
+            v0_3_9: {
+              label: "Legacy (v0.3.9)",
+            },
+          },
+          lastVersion: "current",
         },
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
-          editUrl:
-            'https://github.com/openviglet/docs-react/tree/main/',
+          editUrl: "https://github.com/openviglet/docs-react/tree/main/",
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -68,62 +80,67 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/viglet_logo_header.png',
+    image: "img/viglet_logo_header.png",
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Docs',
+      title: "Docs",
       logo: {
-        alt: 'Viglet Docs Logo',
-        src: 'img/viglet_logo_header.png',
+        alt: "Viglet Docs Logo",
+        src: "img/viglet_logo_header.png",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Tutorial",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/openviglet',
-          label: 'GitHub',
-          position: 'right',
+          type: "docsVersionDropdown",
+          position: "right",
+          dropdownActiveClassDisabled: true,
+        },
+        { to: "/blog", label: "Blog", position: "left" },
+        {
+          href: "https://github.com/openviglet",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: "Tutorial",
+              to: "/docs/intro",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/viglet',
-            }
+              label: "Stack Overflow",
+              href: "https://stackoverflow.com/questions/tagged/viglet",
+            },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "Blog",
+              to: "/blog",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/openviglet',
+              label: "GitHub",
+              href: "https://github.com/openviglet",
             },
           ],
         },
