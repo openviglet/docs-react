@@ -76,9 +76,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Viglet Docs',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Viglet Docs Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -90,7 +90,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/openviglet',
           label: 'GitHub',
           position: 'right',
         },
@@ -113,16 +113,8 @@ const config: Config = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+              href: 'https://stackoverflow.com/questions/tagged/viglet',
+            }
           ],
         },
         {
@@ -134,12 +126,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/openviglet',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © 2017 - ${new Date().getFullYear()} Viglet.`,
     },
     prism: {
       theme: prismThemes.github,

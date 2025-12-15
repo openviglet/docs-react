@@ -1,30 +1,43 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* src/css/custom.css */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Cores claras (Light Mode) - Caso o usuário ative */
+  --ifm-color-primary: orangered; /* Ajuste para a cor verde/azul da marca se souber o hex exato */
+  --ifm-color-primary-dark: orangered;
+  --ifm-color-primary-darker: orangered;
+  --ifm-color-primary-darkest: orangered;
+  --ifm-color-primary-light: orangered;
+  --ifm-color-primary-lighter: orangered;
+  --ifm-color-primary-lightest: orangered;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Customização do Modo Escuro (Foco principal para parecer o docs.viglet.com) */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Fundo principal bem escuro (quase preto) */
+  --ifm-background-color: #0d1117; 
+  --ifm-background-surface-color: #161b22; 
+  
+  /* Cor do texto levemente suavizada para leitura */
+  --ifm-font-color-base: #e6edf3;
+  
+  /* Navbar escura misturando com o fundo */
+  --ifm-navbar-background-color: #0d1117;
+  --ifm-navbar-shadow: none; /* Remove a sombra para ficar "flat" */
+  --ifm-border-color: #30363d; /* Bordas sutis */
+}
+
+/* Ajuste da Navbar para ficar minimalista */
+.navbar {
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+/* Ajuste dos Cards da Home */
+.card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-border-color);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--ifm-color-primary);
 }
