@@ -1,8 +1,12 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* Container da lista */
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
 
+/* Ajuste do Banner */
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -10,14 +14,67 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* O Card em si */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  text-decoration: none !important; /* Remove sublinhado do link */
+  transition: all 0.25s ease;
+  margin-bottom: 2rem;
+  color: var(--ifm-font-color-base);
 }
 
-.buttons {
+/* Efeito Hover estilo "Levitar" */
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Cabeçalho do Card (Flex para alinhar ícone e título) */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Título do Card */
+.cardTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* O Quadrado com a Sigla (Sh, Tu) */
+.acronymBox {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff; /* Texto branco dentro do quadrado */
+  text-transform: uppercase;
+}
+
+/* Corpo do texto */
+.cardBody p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+  flex-grow: 1; /* Empurra o footer para baixo */
+}
+
+/* Rodapé "Read Documentation" */
+.cardFooter {
+  margin-top: 1rem;
+  font-weight: 600;
 }

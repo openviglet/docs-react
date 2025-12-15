@@ -8,13 +8,14 @@
   --ifm-color-primary-light: orangered;
   --ifm-color-primary-lighter: orangered;
   --ifm-color-primary-lightest: orangered;
+  
+  --ifm-background-surface-color: orangered; 
 }
 
 /* Customização do Modo Escuro (Foco principal para parecer o docs.viglet.com) */
 [data-theme='dark'] {
   /* Fundo principal bem escuro (quase preto) */
-  --ifm-background-color: #0d1117; 
-  --ifm-background-surface-color: #161b22; 
+  --ifm-background-color: black; 
   
   /* Cor do texto levemente suavizada para leitura */
   --ifm-font-color-base: #e6edf3;

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Viglet Docs',
-  tagline: 'Viglet Documentation',
+  title: 'Viglet Documentation',
+  tagline: 'Documentation about Viglet Products.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -71,15 +71,15 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/viglet_logo_header.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Viglet Docs',
+      title: 'Docs',
       logo: {
         alt: 'Viglet Docs Logo',
-        src: 'img/logo.svg',
+        src: 'img/viglet_logo_header.png',
       },
       items: [
         {
